@@ -1,11 +1,27 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-const App = () => (
-  <h1>My React and TypeScript App!</h1>
-);
+interface IProps {
+    name?: string;
+}
+
+interface IState {
+    greeting?: string;
+}
+
+class App extends React.Component<IProps, IState> {
+    constructor(props: IProps) {
+        super(props);
+        this.state = {
+            greeting: "Hello"
+        }
+    }
+    render() {
+        return <h1>{this.state.greeting + " " + this.props.name}</h1>
+    }
+}
 
 ReactDOM.render(
-  <App />,
-  document.getElementById("root")
+    <App name="World" />,
+    document.getElementById("root")
 );
