@@ -40,6 +40,7 @@ const config: Configuration = {
         compress: true,
         port: 4000,
     },
+    devtool: "eval-source-map",
     plugins: [
         new ForkTsCheckerWebpackPlugin({
             async: false,
@@ -47,7 +48,10 @@ const config: Configuration = {
                 files: "./src/**/*",
             },
         }),
-        new HtmlWebpackPlugin({template: "src/index.html"})
+        new HtmlWebpackPlugin({
+            template: "static/index.html",
+            favicon: "static/favicon.ico"
+        })
     ],
 };
 
